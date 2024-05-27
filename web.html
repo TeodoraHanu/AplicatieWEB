@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programare WEB</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .footer {
+      text-align: center;
+      padding: 5px;
+      background-color: #8a2be2;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 12px;
+    }
+    .content-container {
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 50px;
+      padding: 20px;
+    }
+    .content-container img {
+      border-radius: 50%; 
+      width: 200px;
+      height: 200px;
+      animation: zoom 3s ease-in-out infinite alternate;
+    }
+    .quote {
+      max-width: 60%;
+      text-align: right;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 50px;
+      transition: transform 0.3s;
+    }
+    .quote p {
+      font-size: 24px;
+      font-style: italic;
+      color: #333;
+    }
+    .icon {
+      font-size: 24px;
+      margin-left: 5px;
+    }
+    @keyframes zoom {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    .quote:hover {
+      transform: scale(1.1);
+    }
+    .table-container {
+      margin-top: 50px;
+    }
+    .info-bubble {
+      background-color: #27032eb6;
+      color: white;
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 18px;
+      width: 90%;
+      max-width: 90vw;
+      margin: 20px auto;
+      cursor: pointer;
+      transform-origin: center;
+      transition: transform 0.3s;
+    }
+    .footer a {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8a2be2;">
+    <div class="container">
+
+      <button id="navbarToggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <a class="navbar-brand" href="#">Programare WEB</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="first.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <div class="content-container d-flex flex-column align-items-center">
+      <img id="programareWEBImage" src="" alt="Imaginea pentru Programare WEB" class="mb-3">
+      <div class="quote">
+        <blockquote class="blockquote">
+          <p class="mb-0"><i class="fas fa-quote-right icon"></i>Mindset is everything.<i class="fas fa-quote-left icon"></i></p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="container table-container">
+    <div class="d-flex justify-content-center mb-3">
+      <button id="addProjectButton" class="btn btn-primary mr-2">Adaugă Temă Proiect</button>
+      <button id="deleteProjectButton" class="btn btn-danger">Șterge Temă Proiect</button>
+    </div>
+    <table id="webProjectsTable" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nume</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-bubble" id="projectConditionsBubble">
+    <p>1. Proiectul trebuie să fie o Aplicație Web (nu site, conform definiției pe care am discutat-o la prima oră)<br>
+    2. Proiectul va fi implementat folosind HTML, CSS și JavaScript (fără PHP)<br>
+    3. Proiectul nu poate fi un magazin online (nimic ce are niște produse care se adaugă în coș și calculează prețul total)<br>
+    4. Proiectul trebuie să lucreze cu date de la un API public SAU să aibă o bază de date proprie<br>
+    5. Proiectul va fi hostat la un provider gratuit (Firebase hosting, Google Sites, etc)<br>
+    6. La dezvoltare se va folosi git-ul (Github)<br><br>
+    Optional:<br>
+    1. Se pot folosi framework-uri de dezvoltare web (Angular, React, Vue.js, etc)<br>
+    2. Se pot folosi framework-uri de stilizare (Bootstrap, Angular Material, etc)<br>
+    3. Puteți lucra în echipe de câte 2 studenți, dar voi avea întrebări pentru fiecare membru al echipei!<br><br>
+    Mentiuni:<br>
+    - puteți propune și voi o temă de interes. Dacă nu sunteți siguri dacă e ok, haideți să o discutăm<br>
+    - o să vreau să vad proiectele de două ori. Odată la mijlocul semestrului și odată la sfârșit.<br>
+    - Nota o veți lua după prezentarea finală și trebuie să fie cel puțin 5pentru promovare.<br>
+    - Proiectele trebuie să fie finite, nu work in progress.<br>
+    - Pe măsură ce primesc întrebări de la voi, voi mai actualiza acest mesaj.</p>
+    
+      </div>
+      <div class="footer">
+        <p>Your limit is your mind! <i class="fas fa-lightbulb" ></i></p>
+        <a href="https://www.csac.ro">www.csac.ro</a>
+        <a href="https://scanstart.ro/">https://scanstart.ro/</a>
+        <a href="https://graffino.com/">https://graffino.com/</a>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+      <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyB2U-cMNnWEEJUEjGoKVqNaWdHzoNtNBFI",
+          authDomain: "aplicatieweb-63028.firebaseapp.com",
+          projectId: "aplicatieweb-63028",
+          storageBucket: "aplicatieweb-63028.appspot.com",
+          messagingSenderId: "576444929635",
+          appId: "1:576444929635:web:f886586361b9cd0d4aca56",
+          measurementId: "G-NPQH9G80KW"
+        };
+    
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+    
+        function getImageUrl() {
+          const programareWEBImage = document.getElementById('programareWEBImage');
+          const bgdImage = document.body;
+    
+          firebase.storage().ref().child('ctin.jpg').getDownloadURL().then(function(url) {
+            programareWEBImage.src = url;
+          }).catch(function(error) {
+            console.error('Eroare la obținerea imaginii pentru Programare WEB: ', error);
+          });
+    
+          firebase.storage().ref().child('bgd.jpg').getDownloadURL().then(function(url) {
+            bgdImage.style.backgroundImage = `url('${url}')`;
+          }).catch(function(error) {
+            console.error('Eroare la obținerea imaginii de fundal: ', error);
+          });
+        }
+    
+        function displayDataInTable() {
+          db.collection('WEB').get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              const table = document.getElementById('webProjectsTable');
+              const tbody = table.getElementsByTagName('tbody')[0];
+              const newRow = tbody.insertRow();
+              const cell1 = newRow.insertCell(0);
+              cell1.textContent = doc.data().nume;
+            });
+          }).catch((error) => {
+            console.error('Eroare la obținerea datelor din Firebase Firestore: ', error);
+          });
+        }
+    
+        function addProject() {
+          const projectName = prompt("Introduceți numele temei de proiect:");
+    
+          if (projectName) {
+            const table = document.getElementById('webProjectsTable');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const newRow = tbody.insertRow();
+            const cell = newRow.insertCell(0);
+            cell.textContent = projectName;
+    
+            db.collection('WEB').add({
+              nume: projectName
+            })
+            .then((docRef) => {
+              console.log("Tema de proiect adăugată cu ID: ", docRef.id);
+            })
+            .catch((error) => {
+              console.error("Eroare la adăugarea temei de proiect: ", error);
+            });
+          }
+        }
+    
+        function deleteProject() {
+          const projectNameToDelete = prompt("Introduceți numele temei de proiect de șters:");
+    
+          if (projectNameToDelete) {
+            const table = document.getElementById('webProjectsTable');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const rows = tbody.getElementsByTagName('tr');
+    
+            for (let i = 0; i < rows.length; i++) {
+              const cellValue = rows[i].getElementsByTagName('td')[0].textContent;
+              if (cellValue === projectNameToDelete) {
+                tbody.removeChild(rows[i]);
+                break;
+              }
+            }
+    
+            db.collection("WEB").where("nume", "==", projectNameToDelete).get().then((querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+                db.collection("WEB").doc(doc.id).delete().then(() => {
+                  console.log("Tema de proiect ștearsă cu succes din baza de date");
+                }).catch((error) => {
+                  console.error("Eroare la ștergerea temei de proiect din baza de date: ", error);
+                });
+              });
+            }).catch((error) => {
+              console.error("Eroare la căutarea temei de proiect în baza de date: ", error);
+            });
+          }
+        }
+    
+        auth.onAuthStateChanged(user => {
+          const addProjectButton = document.getElementById("addProjectButton");
+          const deleteProjectButton = document.getElementById("deleteProjectButton");
+    
+          if (user) {
+            if (user.email === "contadmin@yahoo.com") {
+              addProjectButton.disabled = false;
+              deleteProjectButton.disabled = false;
+    
+              addProjectButton.addEventListener("click", addProject);
+              deleteProjectButton.addEventListener("click", deleteProject);
+            } else {
+              addProjectButton.disabled = true;
+              deleteProjectButton.disabled = true;
+            }
+          } else {
+            addProjectButton.disabled = true;
+            deleteProjectButton.disabled = true;
+          }
+        });
+    
+        window.onload = function() {
+          getImageUrl();
+          displayDataInTable();
+        };
+    
+        document.getElementById("projectConditionsBubble").addEventListener("mouseover", function() {
+          this.style.transform = "scale(1.1)";
+        });
+    
+        document.getElementById("projectConditionsBubble").addEventListener("mouseout", function() {
+          this.style.transform = "scale(1)";
+        });
+
+
+      </script>
+      <div style="height: 100px;"></div>
+    </body>
+    </html>

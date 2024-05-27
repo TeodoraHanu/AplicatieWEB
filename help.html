@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #8a2be2;
+      color: rgb(255, 255, 255);
+    }
+
+    .navbar-brand {
+      color: black;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: bold;
+    }
+
+    .navbar-brand {
+      color: black !important;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 20px;
+      margin: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 5px;
+      background-color: #8a2be2;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    .download-link {
+      display: block;
+      margin: 10px 0;
+    }
+    .footer a {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8a2be2;">
+    <div class="container">
+   
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="first.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div id="graficaSection" class="section">
+      <h2>Grafică Asistată pe Calculator</h2>
+      <div id="graficaContent" class="container">
+      
+      </div>
+    </div>
+    <div id="webSection" class="section">
+      <h2>Programare Web</h2>
+      <p>Câteva proiecte demo, acestea nu sunt proiecte finite, doar exemple, deci nu excelează nici la capitolul design, nici la clean code: <a href="https://github.com/costin1995/Webprogrammierung-2024" target="_blank">Proiectul de Programare Web</a></p>
+    </div>
+    <div id="pooSection" class="section">
+      <h2>Programare Orientată pe Obiecte</h2>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Your limit is your mind! <i class="fas fa-lightbulb" ></i></p>
+    <a href="https://www.csac.ro">www.csac.ro</a>
+    <a href="https://scanstart.ro/">https://scanstart.ro/</a>
+    <a href="https://graffino.com/">https://graffino.com/</a>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script>
+ 
+    const firebaseConfig = {
+      apiKey: "AIzaSyB2U-cMNnWEEJUEjGoKVqNaWdHzoNtNBFI",
+      authDomain: "aplicatieweb-63028.firebaseapp.com",
+      projectId: "aplicatieweb-63028",
+      storageBucket: "aplicatieweb-63028.appspot.com",
+      messagingSenderId: "576444929635",
+      appId: "1:576444929635:web:f886586361b9cd0d4aca56",
+      measurementId: "G-NPQH9G80KW"
+    };
+
+  
+    firebase.initializeApp(firebaseConfig);
+
+    
+    function getBackgroundImage() {
+      const bgdImage = document.body;
+
+      firebase.storage().ref().child('bgd.jpg').getDownloadURL().then(function(url) {
+        bgdImage.style.backgroundImage = `url('${url}')`;
+      }).catch(function(error) {
+        console.error('Eroare la obținerea imaginii de fundal: ', error);
+      });
+    }
+
+    
+    function getGraficaLabsUrl() {
+      const graficaContent = document.getElementById('graficaContent');
+
+      firebase.storage().ref().child('GraficaLabs.rar').getDownloadURL().then(function(url) {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = url;
+        downloadLink.textContent = 'Laboratoare Grafica: GraficaLabs.rar';
+        downloadLink.classList.add('download-link');
+        downloadLink.download = 'GraficaLabs.rar';
+
+        graficaContent.appendChild(downloadLink);
+      }).catch(function(error) {
+        console.error('Eroare la obținerea link-ului de descărcare pentru GraficaLabs.rar: ', error);
+      });
+    }
+
+    
+    function getPOOData() {
+      const db = firebase.firestore();
+
+  
+      const pooRef = db.collection('POO-HELP');
+
+    
+      pooRef.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const pooSection = document.getElementById('pooSection');
+
+          
+          const pooLink = document.createElement('a');
+          pooLink.href = data.pooUrl;
+          pooLink.textContent = data.name;
+          pooLink.classList.add('download-link');
+          pooLink.download = data.name;
+
+          
+          pooSection.appendChild(pooLink);
+        });
+      }).catch((error) => {
+        console.error('Eroare la obținerea datelor din Firestore pentru secțiunea POO:', error);
+      });
+    }
+
+    
+    window.onload = function() {
+      getBackgroundImage();
+      getGraficaLabsUrl();
+      getPOOData();
+    };
+
+  
+  </script>
+   <div style="height: 100px;"></div>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programare Orientată pe Obiecte</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .footer {
+      text-align: center;
+      padding: 5px;
+      background-color: #8a2be2;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 12px;
+    }
+    .content-container {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+    }
+    .content-container img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      animation: zoom 3s ease-in-out infinite alternate;
+    }
+    .quote {
+      max-width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      transition: transform 0.3s;
+    }
+    .footer a {
+      color: white;
+      margin: 0 10px;
+    }
+    .quote p {
+      font-size: 18px;
+      font-style: italic;
+      color: #333;
+    }
+    .quote .icon {
+      font-size: 18px;
+      margin-left: 5px;
+    }
+    .quote:hover {
+      transform: scale(1.05);
+    }
+    .table-container {
+      margin-top: 20px;
+      padding: 0 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    @media (max-width: 425px) {
+      
+  .table-container {
+    overflow-x: auto;
+  }
+  table {
+    font-size: 8px;
+    max-width: 80%;
+  }
+  th, td {
+    padding: 4px;
+  }
+  .quote {
+    max-width: 90%;
+  }
+  .content-container img {
+    width: 150px;
+    height: 150px;
+  }
+  .footer {
+    font-size: 10px;
+  }
+  .navbar-nav .nav-item {
+    margin: 0;
+  }
+  .btn-action {
+    font-size: 2px;
+    padding: 1px 1px;
+    margin-right: 1px;
+  }
+  .observation-cell {
+    font-size: 8px; 
+    line-height: 1; 
+  }
+}
+
+    @keyframes zoom {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    .btn-action {
+      font-size: 14px;
+      padding: 4px 8px;
+      margin-right: 4px;
+    }
+    .navbar {
+      width: 100%;
+    }
+    
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8a2be2;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Programare Orientată pe Obiecte</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+        <a class="nav-link" href="first.html">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="help.html">Help</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="index.html">Logout</a>
+        </li>
+        </ul>
+        </div>
+        </div>
+        
+          </nav>
+          <div class="container mt-5">
+            <div class="content-container d-flex flex-column align-items-center">
+              <img id="programareOrientataPeObiecteImage" src="" alt="Imaginea pentru Programare Orientată pe Obiecte">
+              <div class="quote">
+                <blockquote class="blockquote">
+                  <p class="mb-0"><i class="fas fa-quote-right icon"></i>Don't wish for it.Work for it.<i class="fas fa-quote-left icon"></i></p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="container table-container">
+            <h2>POO Nota 8</h2>
+            <table id="pooNota8Table">
+              <thead>
+                <tr>
+                  <th>Nume</th>
+                  <th>Observații</th>
+                  <th>Email</th>
+                  <th>Acțiune</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <h2>POO Nota 9</h2>
+            <table id="pooNota9Table">
+              <thead>
+                <tr>
+                  <th>Nume</th>
+                  <th>Observații</th>
+                  <th>Email</th>
+                  <th>Acțiune</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <h2>Programare Orientată pe Obiecte</h2>
+            <table id="programareOrientataPeObiecteTable">
+              <thead>
+                <tr>
+                  <th>Nume</th>
+                  <th>Observații</th>
+                  <th>Email</th>
+                  <th>Acțiune</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="footer">
+            <p>Your limit is your mind! <i class="fas fa-lightbulb"></i></p>
+            <a href="https://www.csac.ro">www.csac.ro</a>
+            <a href="https://scanstart.ro/">https://scanstart.ro/</a>
+            <a href="https://graffino.com/">https://graffino.com/</a>
+          </div>
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+          <script>
+            const firebaseConfig = {
+              apiKey: "AIzaSyB2U-cMNnWEEJUEjGoKVqNaWdHzoNtNBFI",
+              authDomain: "aplicatieweb-63028.firebaseapp.com",
+              projectId: "aplicatieweb-63028",
+              storageBucket: "aplicatieweb-63028.appspot.com",
+              messagingSenderId: "576444929635",
+              appId: "1:576444929635:web:f886586361b9cd0d4aca56",
+              measurementId: "G-NPQH9G80KW"
+            };
+        
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+            const auth = firebase.auth();
+        
+            let selectedProject = JSON.parse(localStorage.getItem('selectedProject')) || null;
+        
+            function getImageUrl() {
+              const programareOrientataPeObiecteImage = document.getElementById('programareOrientataPeObiecteImage');
+              const bgdImage = document.body;
+        
+              firebase.storage().ref().child('mr.jpg').getDownloadURL().then(function(url) {
+                programareOrientataPeObiecteImage.src = url;
+              }).catch(function(error) {
+                console.error('Eroare la obținerea imaginii: ',error);
+              });
+        
+              firebase.storage().ref().child('bgd.jpg').getDownloadURL().then(function(url) {
+                bgdImage.style.backgroundImage = `url(${url})`;
+                bgdImage.style.backgroundSize = 'cover';
+                bgdImage.style.backgroundRepeat = 'no-repeat';
+              }).catch(function(error) {
+                console.error('Eroare la obținerea imaginii de fundal: ', error);
+              });
+            }
+        
+            const tableNames = {
+              'pooNota8Table': 'Proiecte de nota 8',
+              'pooNota9Table': 'Proiecte de nota 9',
+              'programareOrientataPeObiecteTable': 'Proiecte de nota 10'
+            };
+        
+            window.onload = function() {
+              getImageUrl();
+              checkAuthState();
+              displayDataInTable('POO Nota 8', 'pooNota8Table');
+              displayDataInTable('POO Nota 9', 'pooNota9Table');
+              displayDataInTable('Programare Orientata pe Obiecte', 'programareOrientataPeObiecteTable');
+        
+              const user = auth.currentUser;
+              if (user) {
+                checkUserProject(user.email);
+              }
+            };
+        
+            function addActionButton(row, docId, collectionName) {
+              const actionCell = row.insertCell(3);
+        
+              const showButton = document.createElement('button');
+              showButton.textContent = 'Alege proiect';
+              showButton.classList.add('btn', 'btn-primary', 'btn-action');
+              showButton.addEventListener('click', function() {
+                const emailCell = row.cells[2];
+                displayUserEmail(emailCell, docId, collectionName);
+              });
+              actionCell.appendChild(showButton);
+        
+              const deleteButton = document.createElement('button');
+              deleteButton.textContent = 'Sterge';
+              deleteButton.classList.add('btn', 'btn-danger', 'btn-action');
+              deleteButton.addEventListener('click', function() {
+                deleteProject(docId, collectionName, row);
+              });
+              actionCell.appendChild(deleteButton);
+}
+
+function deleteProject(docId, collectionName, row) {
+  const confirmDelete = confirm('Sigur dorești să elimini această asociere cu proiectul?');
+  if (confirmDelete) {
+    const user = auth.currentUser;
+    if (user) {
+      const email = user.email;
+
+      db.collection(collectionName).doc(docId).update({
+        emails: firebase.firestore.FieldValue.arrayRemove(email)
+      }).then(() => {
+        console.log('Adresa de email a fost eliminată cu succes din proiect.');
+
+        const emailCell = row.cells[2];
+        const emails = emailCell.textContent.split(',').map(e => e.trim()).filter(e => e !== email);
+        emailCell.textContent = emails.join(', ');
+
+        if (emails.length === 0) {
+          emailCell.textContent = '';
+        }
+
+        selectedProject = null;
+        localStorage.removeItem('selectedProject');
+      }).catch((error) => {
+        console.error('Eroare la eliminarea adresei de email:', error);
+      });
+    } else {
+      auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    }
+  }
+}
+
+function displayDataInTable(collectionName, tableName) {
+  const tableRef = document.getElementById(tableName).getElementsByTagName('tbody')[0];
+
+  tableRef.innerHTML = '';
+
+  db.collection(collectionName).get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      const row = tableRef.insertRow();
+      const nameCell = row.insertCell(0);
+      const observationCell = row.insertCell(1);
+      const emailCell = row.insertCell(2);
+
+      nameCell.textContent = data.nume;
+      observationCell.textContent = data.observații;
+
+      if (data.emails && data.emails.length > 0) {
+        emailCell.textContent = data.emails.join(', ');
+      } else {
+        emailCell.textContent = ''; 
+      }
+
+      addActionButton(row, doc.id, collectionName);
+    });
+  }).catch((error) => {
+    console.error("Error getting documents: ", error);
+  });
+
+  const tableTitle = document.getElementById(tableName).previousElementSibling;
+  tableTitle.textContent = tableNames[tableName];
+}
+
+function displayUserEmail(cell, docId, collectionName) {
+  const user = auth.currentUser;
+  if (user) {
+    const email = user.email;
+
+    const projectRef = db.collection(collectionName).doc(docId);
+
+    if (!selectedProject) {
+      projectRef.update({ emails: firebase.firestore.FieldValue.arrayUnion(email) })
+        .then(() => {
+          console.log('Adresa de email a fost adăugată cu succes.');
+
+          if (cell.textContent === 'N/A' || cell.textContent === '') {
+            cell.textContent = email;
+          } else {
+            cell.textContent += ', ' + email;
+          }
+
+          selectedProject = { id: docId, collection: collectionName };
+          localStorage.setItem('selectedProject', JSON.stringify(selectedProject));
+        })
+        .catch((error) => {
+          console.error('Eroare la adăugarea adresei de email:', error);
+        });
+      } else {
+      console.log('Utilizatorul a selectat deja un proiect:', selectedProject.collection, selectedProject.id);
+    }
+  } else {
+    auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  }
+}
+
+function checkAuthState() {
+  const emailCells = document.querySelectorAll('.email-cell');
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log('Utilizator autentificat: ', user.email);
+      
+      if (!selectedProject) {
+        checkUserProject(user.email);
+      } else {
+        console.log('Utilizatorul a selectat deja un proiect:', selectedProject.collection, selectedProject.id);
+      }
+
+      const storedEmail = localStorage.getItem('userEmail');
+      if (storedEmail) {
+        emailCells.forEach(cell => {
+          cell.textContent = storedEmail;
+        });
+      }
+    } else {
+      console.log('Niciun utilizator autentificat');
+      auth.signInWithEmailAndPassword("email@example.com", "password")
+        .then((userCredential) => {
+          console.log('Utilizator autentificat cu email și parolă: ', userCredential.user.email);
+        })
+        .catch((error) => {
+          console.error('Eroare la autentificarea cu email și parolă: ', error);
+        });
+    }
+  });
+}
+
+</script>
+  <div style="height: 220px;"></div>
+</body>
+</html>

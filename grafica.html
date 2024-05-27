@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafică Asistată pe Calculator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 5px;
+      background-color: #8a2be2;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    .content-container {
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 50px;
+      padding: 20px;
+    }
+
+    .content-container img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      animation: zoom 3s ease-in-out infinite alternate;
+    }
+
+    .quote {
+      max-width: 60%;
+      text-align: right;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 50px;
+      transition: transform 0.3s;
+    }
+    .quote p {
+      font-size: 24px;
+      font-style: italic;
+      color: #333;
+    }
+
+    .icon {
+      font-size: 24px;
+      margin-left: 5px;
+    }
+
+    @keyframes zoom {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .quote:hover {
+      transform: scale(1.1);
+    }
+
+    .pdf-container {
+      width: 100%;
+      height: 600px;
+      margin-top: 50px;
+    }
+    .info-bubble {
+      background-color: #27032eb6;
+      color: white;
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 18px;
+      width: 90%; 
+      max-width: 90vw; 
+      margin: 20px auto;
+      cursor: pointer; 
+      transform-origin: center; 
+      transition: transform 0.3s; 
+    }
+
+    .footer a {
+      color: white;
+    }
+    .table-container {
+      margin-top: 50px;
+      position: relative; 
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8a2be2;">
+    <div class="container">
+
+      <button id="navbarToggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <a class="navbar-brand" href="#">Grafică Asistată de Calculator</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="first.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <div class="content-container d-flex flex-column align-items-center">
+      <img id="graficaAsistataImage" src="" alt="Imaginea pentru Grafică Asistată">
+      <div class="quote">
+        <blockquote class="blockquote">
+          <p class="mb-0"><i class="fas fa-quote-right icon"></i>This will all make perfect sense one day.<i class="fas fa-quote-left icon"></i></p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="container pdf-container">
+    <embed src="https://firebasestorage.googleapis.com/v0/b/aplicatieweb-63028.appspot.com/o/grafica.pdf?alt=media&token=e522ff26-e714-4a42-9440-90232be2543e" width="100%" height="100%" type="application/pdf">
+  </div>
+  <div class="info-bubble" id="projectConditionsBubble">
+  <p>Proiectul trebuie sa contina urmatoarele:<br>
+    - Primitive<br>
+    - Cvadrice<br>
+    - Curbe si / sau suprafete<br>
+    - Transformari Geometrice<br>
+    - Animare<br>
+    - Decupare fata de un plan sau Reuniune a 2-a corpuri<br>
+    - Iluminare<br>
+    - Texturare<br>
+    - Sub forma/formele desenate sa se afiseze un text folosind primitive raster cu numele studentului<br></p>
+</div>
+  <div class="footer">
+    <p>Your limit is your mind! <i class="fas fa-lightbulb"></i></p>
+    <a href="https://www.csac.ro">www.csac.ro</a>
+    <a href="https://scanstart.ro/">https://scanstart.ro/</a>
+    <a href="https://graffino.com/">https://graffino.com/</a>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyB2U-cMNnWEEJUEjGoKVqNaWdHzoNtNBFI",
+      authDomain: "aplicatieweb-63028.firebaseapp.com",
+      projectId: "aplicatieweb-63028",
+      storageBucket: "aplicatieweb-63028.appspot.com",
+      messagingSenderId: "576444929635",
+      appId: "1:576444929635:web:f886586361b9cd0d4aca56",
+      measurementId: "G-NPQH9G80KW"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    function getImageUrl() {
+      const graficaAsistataImage = document.getElementById('graficaAsistataImage');
+      const bgdImage = document.body;
+
+      firebase.storage().ref().child('ab.jpg').getDownloadURL().then(function(url) {
+        graficaAsistataImage.src = url;
+      }).catch(function(error) {
+        console.error('Eroare la obținerea imaginii pentru Grafica Asistata pe Calculator: ', error);
+      });
+
+      firebase.storage().ref().child('bgd.jpg').getDownloadURL().then(function(url) {
+        bgdImage.style.backgroundImage = `url('${url}')`;
+      }).catch(function(error) {
+        console.error('Eroare la obținerea imaginii de fundal: ', error);
+      });
+    }
+
+    window.onload = function() {
+      getImageUrl();
+    };
+    document.getElementById("projectConditionsBubble").addEventListener("mouseover", function() {
+      this.style.transform = "scale(1.1)"; 
+    });
+
+   
+    document.getElementById("projectConditionsBubble").addEventListener("mouseout", function() {
+      this.style.transform = "scale(1)"; 
+    });
+ 
+  </script>
+  <div style="height: 100px;"></div>
+</body>
+</html>

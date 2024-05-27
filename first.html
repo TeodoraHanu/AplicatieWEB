@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestionarea Temelor de Proiect</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar {
+      background-color: #8a2be2;
+      color: rgb(255, 255, 255);
+    }
+
+    .navbar-brand {
+      color: black;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: bold;
+    }
+
+    .navbar-brand {
+      color: black !important;
+      font-weight: bold;
+    }
+
+    .card {
+      margin: 20px;
+      width: 100%;
+      max-width: 250px;
+      display: inline-block;
+      height: auto;
+    }
+
+    .card-body {
+      text-align: center;
+    }
+
+    .card-title {
+      height: 40px;
+    }
+
+    .card-text {
+      height: 50px;
+      overflow: hidden;
+    }
+
+    .btn-details {
+      margin-top: 10px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 180px;
+      border-radius: 50%;
+    }
+
+    body {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .btn-mov {
+      background-color: #8a2be2;
+      border-color: #8a2be2;
+    }
+
+    .title-container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .title {
+      font-size: 2em;
+      color: #8a2be2;
+      font-weight: bold;
+      animation: pulse 2s infinite alternate, move 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 5px;
+      background-color: #8a2be2;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+
+      width: 100%;
+      font-size: 12px;
+    }
+    .footer a {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8a2be2;">
+    <div class="container">
+   
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="first.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="title-container">
+      <h2 class="title">GESTIONAREA TEMELOR DE PROIECT</h2>
+    </div>
+    <div class="row" id="imageCards"></div>
+  </div>
+  
+  <div class="footer">
+    <p>Your limit is your mind! <i class="fas fa-lightbulb"></i></p>
+    <a href="https://www.csac.ro">www.csac.ro</a>
+    <a href="https://scanstart.ro/">https://scanstart.ro/</a>
+    <a href="https://graffino.com/">https://graffino.com/</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyB2U-cMNnWEEJUEjGoKVqNaWdHzoNtNBFI",
+      authDomain: "aplicatieweb-63028.firebaseapp.com",
+      projectId: "aplicatieweb-63028",
+      storageBucket: "aplicatieweb-63028.appspot.com",
+      messagingSenderId: "576444929635",
+      appId: "1:576444929635:web:f886586361b9cd0d4aca56",
+      measurementId: "G-NPQH9G80KW"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    function displayImages() {
+      const imageCards = document.getElementById('imageCards');
+
+      const imageNames = {
+        'br.jpg': 'Grafică Asistată de Calculator',
+        'cr.jpg': 'Programare WEB',
+        'bz.jpg': 'Programare Orientată pe Obiecte'
+      };
+
+      db.collection('images').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const imageData = doc.data();
+          const imageUrl = imageData.imageUrl;
+          const imageName = imageData.name;
+
+          if (imageName === 'br.jpg' || imageName === 'cr.jpg' || imageName === 'bz.jpg') {
+            const card = document.createElement('div');
+            card.classList.add('col-lg-4', 'col-md-6', 'mb-4');
+            card.innerHTML = `
+              <div class="card">
+                <img src="${imageUrl}" class="card-img-top" alt="${imageName}">
+                <div class="card-body">
+                  <h5 class="card-title">${imageNames[imageName]}</h5>
+                  <a href="${getImagePage(imageName)}" class="btn btn-mov btn-details">Detalii</a>
+                </div>
+              </div>
+            `;
+            imageCards.appendChild(card);
+          }
+        });
+      }).catch((error) => {
+        console.error('Eroare la obținerea documentelor: ', error);
+      });
+    }
+
+    function getImagePage(imageName) {
+      switch (imageName) {
+        case 'br.jpg':
+          return 'grafica.html';
+        case 'cr.jpg':
+          return 'web.html';
+        case 'bz.jpg':
+          return 'poo.html';
+        default:
+          return '#';
+      }
+    }
+
+    window.onload = function() {
+      displayImages();
+      firebase.storage().ref().child('bgd.jpg').getDownloadURL().then(function(url) {
+        document.body.style.backgroundImage = `url('${url}')`;
+      }).catch(function(error) {
+        console.error('Eroare la obținerea imaginii de fundal: ', error);
+      });
+    };
+  </script>
+</body>
+</html>
